@@ -8,6 +8,9 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
+/**
+ * @author gedachao
+ */
 @Configuration
 public class ApplicationContextConfig {
 

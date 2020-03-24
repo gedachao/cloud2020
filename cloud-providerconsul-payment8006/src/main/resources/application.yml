@@ -8,6 +8,10 @@ spring:
     consul:
       host: localhost
       discovery:
-        port: 8500
         service-name: ${spring.application.name}
         prefer-ip-address: true
+        #不加health-check-url会健康检查错误
+        health-check-url: http://127.0.0.1:8006/actuator/health
+        hostname: localhost
+      port: 8500
+#        hostname: 192.168.43.229

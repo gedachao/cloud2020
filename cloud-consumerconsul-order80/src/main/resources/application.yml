@@ -7,7 +7,8 @@ spring:
   cloud:
     consul:
       host: localhost
+      port: 8500
       discovery:
-        port: 8500
         service-name: ${spring.application.name}
         prefer-ip-address: true
+        health-check-url: http://127.0.0.1/actuator/health

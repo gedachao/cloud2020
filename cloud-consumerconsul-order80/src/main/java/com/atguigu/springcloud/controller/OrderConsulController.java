@@ -7,6 +7,9 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
+/**
+ * @author gedachao
+ */
 @RestController
 public class OrderConsulController {
 
