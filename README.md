@@ -9,7 +9,7 @@ openFeign用于消费端，配合eureka使用：
 2. 新建service，添加`@Component`和`@FeignClient(value = "#服务提供方名称CLOUD-PAYMENT-SERVICE")`；
 添加和服务提供方service相同的接口名称：
 ```java
- @GetMapping(value = "/payment/getPaymentById/{id}")
+    @GetMapping(value = "/payment/getPaymentById/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id);
 ```
 在controller中直接调用：

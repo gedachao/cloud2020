@@ -1,0 +1,19 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-consumer-hystrix
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: order-hystrix-80
+    prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+
