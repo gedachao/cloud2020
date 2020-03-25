@@ -29,4 +29,22 @@ public class OrderFeignController {
 
 }
 ```
-   
+openFeign日志增强:
+在`application.yml`文件中添加：
+```yaml
+logging:
+  level:
+    #监控哪一个接口
+    com.atguigu.springcloud.service.PaymentFeignService: debug
+
+```
+新增配置类：
+```java
+@Configuration
+public class FeignConfig {
+    @Bean
+     Logger.Level feignLoggerLevel(){
+         return Logger.Level.FULL;
+     }
+}
+```
