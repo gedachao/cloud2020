@@ -22,6 +22,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
+      #若配置为多个地址表示向多个服务中心注册（用于eureka-server端集群）
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
   instance:
     #主机名称，服务名称修改
