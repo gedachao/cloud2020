@@ -1,6 +1,7 @@
 package com.atguigu.springcloud.controller;
 
 import com.atguigu.springcloud.service.PaymentHystrixService;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @Slf4j
+@DefaultProperties(defaultFallback = "payment_Global_FallbackMethod")
 public class PaymentHystrixController {
 
     @Autowired
@@ -26,8 +28,6 @@ public class PaymentHystrixController {
         String result = paymentHystrixService.paymentInfo_OK(id);
         log.info("****ok结果："+result);
         return result;
-
-
     }
 
     @HystrixCommand(fallbackMethod = "paymentInfo_TimeoutHandler",commandProperties = {
@@ -43,5 +43,9 @@ public class PaymentHystrixController {
 
     public String paymentInfo_TimeoutHandler(Integer id){
         return "consumer-线程池："+Thread.currentThread().getName()+" paymentInfo_TimeoutHandler,id: "+id+"\t"+"呜呜呜......";
+    }
+
+    public String payment_Global_FallbackMethod(){
+        return null;
     }
 }

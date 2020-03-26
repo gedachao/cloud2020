@@ -16,6 +16,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableDiscoveryClient
 @EnableHystrix
 @EnableFeignClients
+@EnableCircuitBreaker
 public class OrderHystrixMain80 {
     public static void main(String[] args) {
         SpringApplication.run(OrderHystrixMain80.class,args);
